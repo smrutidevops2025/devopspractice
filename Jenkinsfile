@@ -26,7 +26,7 @@ pipeline{
        stage("package"){
 	    steps{
 		 sh 'mvn clean package'
-                 sh "mv target/*.war target/myweb.war"
+                 sh "mv target/*.jar target/myweb1.war"
 
 		}
 		}
@@ -37,7 +37,7 @@ pipeline{
 
 	        sh """
                  
-            scp -o StrictHostKeyChecking=no target/myweb.jar ec2-user@3.89.161.17:/home/ec2-user/tomcat10/webapps/
+            scp -o StrictHostKeyChecking=no target/myweb1.war ec2-user@3.89.161.17:/home/ec2-user/tomcat10/webapps/
 
               ssh ec2-user@3.89.161.17 /home/ec2-user/tomcat10/bin/shutdown.sh
                ssh ec2-user@3.89.161.17 /home/ec2-user/tomcat10/bin/startup.sh
