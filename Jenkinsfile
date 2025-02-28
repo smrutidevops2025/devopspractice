@@ -26,6 +26,11 @@ pipeline {
                 sh 'mvn package '
             }
         }
+	    stage('package') {
+            steps {
+                sh 'mv target/*.war target/webapp.war '
+            }
+        }
 	
       }
 }
