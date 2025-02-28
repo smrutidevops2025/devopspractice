@@ -23,14 +23,11 @@ pipeline {
         }
 		stage('package') {
             steps {
-                sh 'mvn package '
+                sh 'mvn clean package '
+		sh 'mv target/*.war target/webapp.war '
             }
         }
-	    stage('package') {
-            steps {
-                sh 'mv target/*.war target/webapp.war '
-            }
-        }
+	    
 	
       }
 }
