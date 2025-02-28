@@ -26,7 +26,7 @@ pipeline{
        stage("package"){
 	    steps{
 		 sh 'mvn clean package'
-                 sh "mv target/*.jar target/myweb1.war"
+                 sh "mv target/*.war target/myweb1.war"
 
 		}
 		}
